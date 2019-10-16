@@ -241,6 +241,11 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     }
 }
 
+void MainWindow::keyPressedDisplay(QLabel* label)
+{
+    label->setStyleSheet("background-color: rgb(255, 153, 0);");
+}
+
 void MainWindow::keyReleaseEvent(QKeyEvent *event)
 {
     int key = event->nativeScanCode();  //区分同样键位可用nativeScanCode，码是唯一的
@@ -254,195 +259,12 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event)
     }
 }
 
-//void MainWindow::DefaultColor()
-//{
-//    ui->centralWidget->setStyleSheet("background-color: rgb(0, 102, 153);");    //背景色
-//    ui->scrollAreaWidgetContents
-//            ->setStyleSheet("border:none; border-radius:0px; background-color: rgb(0, 0, 0, 100); color: rgb(255, 255, 255);font-size:11px;");
-//    ui->widget_Keyboard
-//            ->setStyleSheet("QWidget#widget_Keyboard{ border:none; border-radius:8px; background-color:rgb(17,17,17,100);} "
-//                            "QLabel{ border:none; border-radius:5px; color: rgb(255, 255, 255); font-size:9px;}");   //键盘外壳色,字颜色
-
-//    QMapIterator<int, QLabel *> itA(m_mapKeysPartA);
-//    QMapIterator<int, QLabel *> itB(m_mapKeysPartB);
-//    while (itA.hasNext())
-//    {
-//        itA.next();
-//        itA.value()->setStyleSheet("background-color: rgb(102, 204, 255);");   //A区颜色
-//    }
-//    while (itB.hasNext())
-//    {
-//        itB.next();
-//        itB.value()->setStyleSheet("background-color: rgb(0, 120, 159);");     //B区颜色
-//    }
-//}
-
-
-///**
-// * @brief GMK情人节
-// */
-//void MainWindow::Valentine()
-//{
-////    ui->centralWidget->setStyleSheet("background-color: rgb(191, 191, 185); font-size:9px;");    //背景色
-////    ui->widget_Keyboard->setStyleSheet("QWidget#widget_Keyboard{ border:none; border-radius:8px; background-color:rgb(233,233,228);} "
-////                              "QLabel{ border:none; border-radius:5px; font-size:9px;}");   //键盘外壳色,字颜色
-////    for ( int i=0; i!=m_listKeysPartA.size(); ++i )
-////    {
-////        m_listKeysPartA.at(i)->setStyleSheet("background-color: rgb(254, 253, 248);  color: rgb(219,66,147);");   //A区颜色
-////    }
-
-////    for ( int i=0; i!=m_listKeysPartB.size(); ++i )
-////    {
-////        m_listKeysPartB.at(i)->setStyleSheet("background-color: rgb(219,66,147); color: rgb(254, 253, 248);");     //B区颜色
-////    }
-//}
-
-
-///**
-// * @brief GMK KA1953
-// */
-//void MainWindow::KA1953()
-//{
-////    ui->centralWidget->setStyleSheet("background-color: rgb(38, 38, 38); font-size:9px;");    //背景色
-////    ui->widget_Keyboard->setStyleSheet("QWidget#widget_Keyboard{ border:none; border-radius:8px; background-color:rgb(68,68,68);} "
-////                              "QLabel{ border:none; border-radius:5px; color: rgb(5, 5, 5); font-size:9px;}");   //键盘外壳色,字颜色
-////    for ( int i=0; i!=m_listKeysPartA.size(); ++i )
-////    {
-////        m_listKeysPartA.at(i)->setStyleSheet("background-color: rgb(254, 253, 248);");   //A区颜色
-////    }
-
-////    for ( int i=0; i!=m_listKeysPartB.size(); ++i )
-////    {
-////        m_listKeysPartB.at(i)->setStyleSheet("background-color: rgb(188, 185, 173);");     //B区颜色
-////    }
-
-//}
-
-///**
-// * @brief GMK大碳
-// */
-//void MainWindow::Carbon()
-//{
-////    ui->centralWidget->setStyleSheet("background-color: rgb(38, 38, 38); font-size:9px;");    //背景色
-////    ui->widget_Keyboard->setStyleSheet("QWidget#widget_Keyboard{ border:none; border-radius:8px; background-color:rgb(68,68,68);} "
-////                              "QLabel{ border:none; border-radius:5px; color: rgb(87,93,94); font-size:9px;}");   //键盘外壳色,字颜色
-////    for ( int i=0; i!=m_listKeysPartA.size(); ++i )
-////    {
-////        m_listKeysPartA.at(i)->setStyleSheet("background-color: rgb(227,217,198); color:rgb(87,93,94);");   //A区颜色
-////    }
-
-////    for ( int i=0; i!=m_listKeysPartB.size(); ++i )
-////    {
-////        m_listKeysPartB.at(i)->setStyleSheet("background-color: rgb(87,93,94); color:rgb(237,107,33);");     //B区颜色
-////    }
-
-////    ui->label_esc->setStyleSheet("background-color: rgb(237,107,33); color: rgb(87,93,94);");   //Esc
-////    ui->label_f5->setStyleSheet("background-color: rgb(237,107,33); color: rgb(87,93,94);");
-////    ui->label_f6->setStyleSheet("background-color: rgb(237,107,33); color: rgb(87,93,94);");
-////    ui->label_f7->setStyleSheet("background-color: rgb(237,107,33); color: rgb(87,93,94);");
-////    ui->label_f8->setStyleSheet("background-color: rgb(237,107,33); color: rgb(87,93,94);");
-////    ui->label_prtsc->setStyleSheet("background-color: rgb(237,107,33); color: rgb(87,93,94);");
-////    ui->label_scrolllock->setStyleSheet("background-color: rgb(237,107,33); color: rgb(87,93,94);");
-////    ui->label_pausebreak->setStyleSheet("background-color: rgb(237,107,33); color: rgb(87,93,94);");
-////    ui->label_up->setStyleSheet("background-color: rgb(237,107,33); color: rgb(87,93,94);");
-////    ui->label_down->setStyleSheet("background-color: rgb(237,107,33); color: rgb(87,93,94);");
-////    ui->label_left->setStyleSheet("background-color: rgb(237,107,33); color: rgb(87,93,94);");
-////    ui->label_right->setStyleSheet("background-color: rgb(237,107,33); color: rgb(87,93,94);");
-////    ui->label_enterl->setStyleSheet("background-color: rgb(237,107,33); color: rgb(87,93,94);"); //Enterl
-////    ui->label_enterr->setStyleSheet("background-color: rgb(237,107,33); color: rgb(87,93,94);"); //Enterr
-
-//}
-
-///**
-// * @brief GMK9009
-// */
-//void MainWindow::GMK9009()
-//{
-////    ui->centralWidget->setStyleSheet("background-color: rgb(172, 172, 168); font-size:9px;");    //背景色
-////    ui->widget_Keyboard->setStyleSheet("QWidget#widget_Keyboard{ border:none; border-radius:8px; background-color:rgb(219,219,217);} "
-////                              "QLabel{ border:none; border-radius:5px; color: rgb(5, 5, 5); font-size:9px;}");   //键盘外壳色,字颜色
-////    for ( int i=0; i!=m_listKeysPartA.size(); ++i )
-////    {
-////        m_listKeysPartA.at(i)->setStyleSheet("background-color: rgb(254, 253, 248);");   //A区颜色
-////    }
-
-////    for ( int i=0; i!=m_listKeysPartB.size(); ++i )
-////    {
-////        m_listKeysPartB.at(i)->setStyleSheet("background-color: rgb(188, 185, 173);");     //B区颜色
-////    }
-
-////    ui->label_esc->setStyleSheet("background-color: rgb(230, 187, 197); color: rgb(5, 5, 5);");   //Esc
-////    ui->label_ins->setStyleSheet("background-color: rgb(230, 187, 197); color: rgb(5, 5, 5);");
-////    ui->label_enterr->setStyleSheet("background-color: rgb(230, 187, 197); color: rgb(5, 5, 5);"); //Enterr
-////    ui->label_enterl->setStyleSheet("background-color: rgb(146, 173, 154); color: rgb(5, 5, 5);"); //Enterl
-
-//}
-
-///**
-// * @brief GMK死灵
-// */
-//void MainWindow::Necro()
-//{
-////    ui->centralWidget->setStyleSheet("background-color: rgb(95, 95, 95); font-size:9px;");    //背景色
-////    ui->widget_Keyboard->setStyleSheet("QWidget#widget_Keyboard{ border:none; border-radius:8px; background-color:rgb(68,68,68);} "
-////                              "QLabel{ border:none; border-radius:5px; color: rgb(113,125,131); font-size:9px;}");   //键盘外壳色,字颜色
-////    for ( int i=0; i!=m_listKeysPartA.size(); ++i )
-////    {
-////        m_listKeysPartA.at(i)->setStyleSheet("background-color: rgb(230,244,220); color:rgb(113,125,131);");   //A区颜色
-////    }
-
-////    for ( int i=0; i!=m_listKeysPartB.size(); ++i )
-////    {
-////        m_listKeysPartB.at(i)->setStyleSheet("background-color: rgb(113,125,131); color:rgb(147,208,210);");     //B区颜色
-////    }
-
-////    ui->label_esc->setStyleSheet("background-color: rgb(147,208,210); color: rgb(37,51,72);");   //Esc
-////    ui->label_up->setStyleSheet("background-color: rgb(147,208,210); color: rgb(37,51,72);");
-////    ui->label_down->setStyleSheet("background-color: rgb(147,208,210); color: rgb(37,51,72);");
-////    ui->label_left->setStyleSheet("background-color: rgb(147,208,210); color: rgb(37,51,72);");
-////    ui->label_right->setStyleSheet("background-color: rgb(147,208,210); color: rgb(37,51,72);");
-////    ui->label_enterl->setStyleSheet("background-color: rgb(147,208,210); color: rgb(37,51,72);"); //Enterl
-////    ui->label_enterr->setStyleSheet("background-color: rgb(147,208,210); color: rgb(37,51,72);"); //Enterr
-//}
-
-///**
-// * @brief GMK DMG
-// */
-//void MainWindow::DMG()
-//{
-////    ui->centralWidget->setStyleSheet("background-color: rgb(145, 145, 145);");    //背景色
-////    ui->widget_Keyboard->setStyleSheet("QWidget#widget_Keyboard{ border:none; border-radius:8px; background-color:rgb(215,211,210);} "
-////                              "QLabel{ border:none; border-radius:5px; color: rgb(5, 5, 5); font-size:9px;}");   //键盘外壳色,字颜色
-////    for ( int i=0; i!=m_listKeysPartA.size(); ++i )
-////    {
-////        m_listKeysPartA.at(i)->setStyleSheet("background-color: rgb(245,245,249); color:rgb(108,60,157);");   //A区颜色
-////    }
-
-////    for ( int i=0; i!=m_listKeysPartB.size(); ++i )
-////    {
-////        m_listKeysPartB.at(i)->setStyleSheet("background-color: rgb(150,153,155); color:rgb(108,60,157);");     //B区颜色
-////    }
-
-////    ui->label_esc->setStyleSheet("background-color: rgb(219,66,147); color: rgb(245,245,249);");   //Esc
-////    ui->label_enterl->setStyleSheet("background-color: rgb(219,66,147); color: rgb(245,245,249);"); //Enterl
-////    ui->label_enterr->setStyleSheet("background-color: rgb(219,66,147); color: rgb(245,245,249);"); //Enterr
-////    ui->label_ins->setStyleSheet("background-color: rgb(219,66,147); color: rgb(245,245,249);");
-////    ui->label_home->setStyleSheet("background-color: rgb(219,66,147); color: rgb(245,245,249);");
-//    //    ui->label_pageup->setStyleSheet("background-color: rgb(219,66,147); color: rgb(245,245,249);");
-//}
-
-
-
-void MainWindow::keyPressedDisplay(QLabel* label)
-{
-    label->setStyleSheet("background-color: rgb(255, 153, 0);");
-}
-
 void MainWindow::keyReleasedDisplay(QLabel *label)
 {
     label->setStyleSheet("background-color: rgb(200, 215, 227);");
 }
 
+//键盘配色显示方案
 void MainWindow::defaultColor()
 {
     //GMK Metropolis
